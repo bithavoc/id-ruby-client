@@ -18,9 +18,10 @@ class NegotiateTest < MiniTest::Test
 
     def test_invalid_access_code
         stub_request(:post, "https://id.bithavoc.io/apps/59abb3124156a6e47e39108e36f9f380/tokens").with(:body => "code=invalid_code").to_return(:status=> 422, :body=> '{"message": "Invalid authorization code"}', :headers=>{"Content-Type"=>"application/json"})
-        assert_raises(Bithavoc::Identity::IdentityError) do
+        err = assert_raises(Bithavoc::Identity::IdentityError) do
             @client.negotiate('invalid_code')
         end
+        assert_equal "Invalid authorization code", err.message
     end
 end
 
