@@ -1,6 +1,3 @@
-require "bithavoc/identity/version"
-require "bithavoc/identity/error"
-
 require "bithavoc/identity/connectivity"
 Dir.glob( File.join( File.dirname(__FILE__), 'operations', '*.rb' ), &method(:require) )
 
