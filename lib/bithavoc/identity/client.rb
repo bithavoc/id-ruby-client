@@ -5,6 +5,7 @@ require "bithavoc/identity/error"
 require "bithavoc/identity/connectivity"
 require "bithavoc/identity/negotiate"
 require "bithavoc/identity/signin"
+require "bithavoc/identity/signup"
 
 module Bithavoc
     module Identity
@@ -13,6 +14,7 @@ module Bithavoc
 
             include Negotiate
             include SignIn
+            include SignUp
 
             public
             attr_reader :app_id
