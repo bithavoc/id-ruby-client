@@ -7,6 +7,7 @@ require "bithavoc/identity/negotiate"
 require "bithavoc/identity/signin"
 require "bithavoc/identity/signup"
 require "bithavoc/identity/confirm"
+require "bithavoc/identity/validate"
 
 module Bithavoc
     module Identity
@@ -17,6 +18,7 @@ module Bithavoc
             include SignIn
             include SignUp
             include Confirm
+            include Validate
 
             public
             attr_reader :app_id
