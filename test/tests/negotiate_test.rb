@@ -12,9 +12,9 @@ class NegotiateTest < MiniTest::Test
 
     def test_create
         stub_request(:post, "https://id.bithavoc.io/apps/59abb3124156a6e47e39108e36f9f380/tokens").with(:body => "code=some_auth_code").to_return(:status=> 201, :body=> '{"token": "some_auth_token", "user": {"email": "johan@johan.com", "fullname": "Johan Johanson"}}', :headers=>{"Content-Type"=>"application/json"})
-        info = @client.negotiate('some_auth_code')
-        assert_equal "some_auth_token", info['token']
-        assert_equal "johan@johan.com", info['user']['email']
+        token, user = @client.negotiate('some_auth_code')
+        assert_equal "some_auth_token", token
+        assert_equal "johan@johan.com", user['email']
     end
 
     def test_invalid_access_code

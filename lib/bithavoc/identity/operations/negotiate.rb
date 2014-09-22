@@ -5,7 +5,7 @@ module Bithavoc::Identity::Negotiate
         res = self.class.post("/apps/#{app_id}/tokens", body: {code: auth_code})
         case res.code
         when 201
-            res
+            return res['token'], res['user']
         when 422
             raise Bithavoc::Identity::IdentityError.new, res['message']
         else
