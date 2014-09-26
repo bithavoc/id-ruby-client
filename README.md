@@ -1,5 +1,7 @@
 # Bithavoc::Identity
 
+[![Build Status](https://travis-ci.org/bithavoc/id-ruby-client.svg?branch=master)](https://travis-ci.org/bithavoc/id-ruby-client)
+
 Ruby client library for Bithavoc Identity Hub
 
 ## Installation
